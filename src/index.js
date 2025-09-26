@@ -1,6 +1,8 @@
 const express = require('express');
+const RestApi  = require('./Api/Restapi.controller.js');
 const app = express();
 const port = 3000;
+
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -9,10 +11,10 @@ app.use(express.json());
 // Put your implementation here
 // If necessary to add imports, please do so in the section above
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
+app.get('/users/:id', RestApi.RetrieveaUser);
+app.post('/users', RestApi.CreateaUser);
+app.put('/users/:id', RestApi.UpdateaUser);
+app.delete('/users/:id', RestApi.DeleteaUser);
 // Do not touch the code below this comment
 // **************************************************************
 
